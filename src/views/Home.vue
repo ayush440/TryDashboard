@@ -9,19 +9,20 @@
           <h2 class="text-xl font-semibold mb-2">Today's Sales</h2>
           <p class="text-gray-500 mb-4">Sales Summary</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <StatCard 
+            <StatCard  class=" border-2 "
               title="Total profit" 
               value="₹1k" 
               change="+8% from yesterday" 
               icon="trending-up"
+
             />
-            <StatCard 
+            <StatCard  class=" border-2   "
               title="Strategy deployed" 
               value="32" 
               change="+4% from yesterday" 
               icon="zap"
             />
-            <StatCard 
+            <StatCard class=" border-2 "
               title="Total orders" 
               value="53" 
               change="+3% from yesterday" 
@@ -34,6 +35,7 @@
         <PositionsTable :positions="positions" />
       </div>
     </div>
+    
   </template>
   
   <script setup>
