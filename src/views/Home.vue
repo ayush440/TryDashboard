@@ -39,7 +39,7 @@
   <script setup>
   import { ref } from 'vue'
   import DonutChart from '../components/DonutChart.vue'
-  import StatCard from '../components/StatCard.vue'
+  import StatCard from '../../src/components/Statcard.vue'
   import PositionsTable from '../components/PositionsTable.vue'
   
   const profitData = ref([
