@@ -3,7 +3,7 @@
     <Sidebar />
     <div class="main-content">
       <Header />
-      <Home/>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -11,7 +11,6 @@
 <script setup>
 import Sidebar from './components/Sidebar.vue'
 import Header from './components/Header.vue'
-import Home from './views/Home.vue';
 </script>
 
 <style scoped>
@@ -26,4 +25,3 @@ import Home from './views/Home.vue';
   background-color: #ebf5ff;
 }
 </style>
-
