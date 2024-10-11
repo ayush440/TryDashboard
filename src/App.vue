@@ -3,7 +3,7 @@
     <Sidebar />
     <div class="main-content">
       <Header />
-      <router-view></router-view>
+      <RouterView/>
     </div>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script setup>
 import Sidebar from './components/Sidebar.vue'
 import Header from './components/Header.vue'
+import { RouterView } from 'vue-router';
 </script>
 
 <style scoped>
