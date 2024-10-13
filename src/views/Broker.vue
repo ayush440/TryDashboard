@@ -24,7 +24,7 @@
           <tr v-for="broker in brokers" :key="broker.id" :class="{ 'bg-gray-50': broker.id % 2 === 0 }">
             <td class="px-6 py-4 whitespace-nowrap">
               <div class="flex items-center">
-                <img :src="getBrokerIcon(broker.name)" class="w-8 h-8 mr-3" :alt="broker.name">
+                <img :src="getBrokerImage(broker.name)" class="w-8 h-8 mr-3 object-contain" :alt="broker.name">
                 <span class="font-medium text-gray-900">{{ broker.name }}</span>
               </div>
             </td>
@@ -58,13 +58,13 @@
             <label class="block text-sm font-medium text-gray-700">Select Broker*</label>
             <select v-model="brokerForm.name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
               <option value="">Select a broker</option>
+              <option value="Aliceblue">Aliceblue</option>
               <option value="Angel">Angel</option>
-              <option value="IIFL">IIFL</option>
-              <option value="Zerodha">Zerodha</option>
-              <option value="Mhtrade">Mhtrade</option>
-              <option value="Shoonya">Shoonya</option>
               <option value="Dhan">Dhan</option>
-              <option value="Alice">Alice</option>
+              <option value="IIFL">IIFL</option>
+              <option value="Matrade">Matrade</option>
+              <option value="Shoonya">Shoonya</option>
+              <option value="Zerodha">Zerodha</option>
             </select>
           </div>
           <div>
@@ -178,10 +178,10 @@ import { ref, reactive, computed } from 'vue'
 import Modal from '../components/Modal.vue'
 import { useBrokerStore } from '../stores/broker'
 
-const  brokerStore = useBrokerStore()
+const brokerStore = useBrokerStore()
 const brokers = computed(() => brokerStore.getBrokers)
 
-const showBrokerModal = ref(false)
+const  showBrokerModal = ref(false)
 const isEditing = ref(false)
 const brokerForm = reactive({
   name: '',
@@ -265,9 +265,18 @@ const closeOrdersPositionsModal = () => {
   showOrdersPositionsModal.value = false
 }
 
-const getBrokerIcon = (brokerName) => {
-  // You can implement a function to return the appropriate icon URL based on the broker name
-  return `/images/brokers/${brokerName.toLowerCase()}.svg`
+const getBrokerImage = (brokerName) => {
+  const imageMap = {
+    'Angel': 'Angel.png',
+    'IIFL': 'IIFL.png',
+    'Zerodha': 'Zerodha.png',
+    'Aliceblue': 'Aliceblue.png',
+    'Dhan': 'Dhan.png',
+    'Matrade': 'Matrade.png',
+    'Shoonya': 'Shoonya.png'
+  };
+  const imageName = imageMap[brokerName] || `${brokerName.toLowerCase()}.png`;
+  return new URL(`/src/assets/images/${imageName}`, import.meta.url).href;
 }
 </script>
 
