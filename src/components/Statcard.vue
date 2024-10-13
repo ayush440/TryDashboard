@@ -18,7 +18,8 @@
 <script setup>
 import { computed } from 'vue'
 import * as LucideIcons from 'lucide-vue-next'
-import StatCard from '../components/StatCard.vue'
+
+
 
 
 const props = defineProps({
