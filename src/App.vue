@@ -1,5 +1,6 @@
 <template>
-  <div class="app-container">
+
+  <div class="app-container flex h-screen">
     <Sidebar />
     <div class="main-content">
       <Header />
